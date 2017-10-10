@@ -8,13 +8,24 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MyViewController: UIViewController {
 
+    var  cellLabel: String = ""
+    
+    @IBOutlet weak var myCellLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
 
+        myCellLabel.text = cellLabel
+    
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        performSegue(withIdentifier: kUnwind, sender: self)
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
